@@ -18,79 +18,36 @@ Arquitectura **operable** en entorno industrial: *soft sensors* + validación + 
 
 ---
 
-## Arquitectura “at a glance” (OT/DMZ/IT + módulos)
+## Arquitectura at a glance
 
 ```mermaid
 flowchart LR
-  %% =========================
-  %% Zonas / Trust boundaries
-  %% =========================
-  subgraph OT["OT (Purdue L0–L3) — fuentes en solo lectura"]
-    direction TB
-    PLC["PLC/DCS\n(tags de proceso)"]
-    HIST["Historian (p.ej. OSIsoft PI)\nseries temporales"]
-    PAT["PAT NIR/Raman\n(espectros)"]
+  subgraph OT["OT Zone"]
+    PLC["PLC/DCS"]
+    HIST["Historian"]
+    PAT["PAT Sensors"]
   end
 
-  subgraph DMZ["Industrial DMZ / Edge Zone"]
-    direction TB
-    EDGE["Nodo Edge ACQC\n(PC industrial o Jetson Orin)\nSecure Boot + root of trust"]
-    ING["Ingesta\nOPC UA / conector historian\n+ PAT adapter"]
-    QC["Data contracts\n(unidades, rangos, calidad)"]
-    FE["Feature builder\n(alineación temporal)"]
-    SS["Soft Sensors (inferencia)\nONNX Runtime (+TensorRT)"]
-    UNK["Incertidumbre\n(intervalos calibrados)"]
-    DR["Drift/OOD + salud sensor\n(QC espectral, PSI, residuales)"]
-    OPT["Optimización segura (advisory)\nrestricciones + 'no recomendar'"]
-    UI["Dashboard/HMI\n(evidencia + auditoría)"]
-    OBS["Observabilidad y logs\n(métricas + trazas)"]
-    EDGE --> ING --> QC --> FE --> SS --> UNK --> DR --> OPT --> UI
-    SS --> UI
-    DR --> UI
-    OPT --> OBS
-    SS --> OBS
-    DR --> OBS
+  subgraph DMZ["Industrial DMZ"]
+    EDGE["Edge ACQC"]
+    SS["Soft Sensors"]
+    OPT["Advisory Optimizer"]
+    UI["Dashboard"]
   end
 
-  subgraph IT["IT / Analytics Zone"]
-    direction TB
-    LIMS["Laboratorio / LIMS\n(ground truth)"]
-    MLO["MLOps & gobernanza\nGit + DVC + MLflow\nCI/CD con gates"]
-    REG["Registry\n(paquetes firmados)\n+ rollback"]
-    SIEM["SIEM / SOC\n(correlación de eventos)"]
-    ROI["Business Case\nROI / sensibilidad"]
-    MLO --> REG
+  subgraph IT["IT Zone"]
+    LIMS["LIMS Lab"]
+    MLO["MLOps"]
+    REG["Model Registry"]
   end
 
-  subgraph PEOPLE["Usuarios"]
-    direction TB
-    OP["Operador/a\n(acepta/rechaza)"]
-    QA["Calidad/Lab\n(muestreo/validación)"]
-    SEC["OT/IT Security\n(hardening, accesos)"]
-    MGMT["Gestión\n(ROI y roadmap)"]
-  end
-
-  %% =========================
-  %% Flujos
-  %% =========================
-  PLC -->|OPC UA (read-only)| ING
-  PAT -->|espectros| ING
-
-  HIST -->|histórico| MLO
-  LIMS -->|resultados lab| MLO
-
-  MLO -->|export ONNX + model card| REG -->|deploy a DMZ| EDGE
-  OBS -->|logs| SIEM
-
-  UI --> OP
-  ROI --> MGMT
-  QA --> LIMS
-  SEC --> SIEM
-
-  %% =========================
-  %% Fuera de alcance (control)
-  %% =========================
-  OPT -.->|NO writeback\n(fuera de alcance TFM)| PLC
+  PLC --> EDGE
+  PAT --> EDGE
+  EDGE --> SS --> OPT --> UI
+  HIST --> MLO
+  LIMS --> MLO
+  MLO --> REG --> EDGE
+  OPT -.->|read-only| PLC
 ```
 
 ---
