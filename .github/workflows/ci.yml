@@ -13,7 +13,7 @@ jobs:
     name: Check Markdown Links
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       
       - name: Check markdown links
         uses: gaurav-nelson/github-action-markdown-link-check@v1
@@ -30,7 +30,7 @@ jobs:
     name: Build MkDocs
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -54,7 +54,7 @@ jobs:
       run:
         working-directory: src
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       
       - name: Setup Python
         uses: actions/setup-python@v5
