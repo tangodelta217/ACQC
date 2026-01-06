@@ -7,9 +7,13 @@ Provides minimal audit logging for predictions and decisions.
 import json
 import hashlib
 from dataclasses import dataclass, asdict
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
+
+
+def _utc_now_iso() -> str:
+    return datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
 
 
 @dataclass
@@ -36,7 +40,7 @@ class AuditLog:
     def _generate_id(self) -> str:
         """Generate unique entry ID."""
         self._counter += 1
-        ts = datetime.utcnow().strftime("%Y%m%d%H%M%S")
+        ts = datetime.now(timezone.utc).strftime("%Y%m%d%H%M%S")
         return f"TRACE-{ts}-{self._counter:04d}"
     
     def _compute_hash(self, data: Any) -> str:
@@ -54,7 +58,7 @@ class AuditLog:
         """Log a prediction event."""
         entry = TraceEntry(
             entry_id=self._generate_id(),
-            timestamp=datetime.utcnow().isoformat() + "Z",
+            timestamp=_utc_now_iso(),
             event_type="PREDICTION",
             payload={
                 "prediction": prediction,
@@ -80,7 +84,7 @@ class AuditLog:
         """Log a recommendation event."""
         entry = TraceEntry(
             entry_id=self._generate_id(),
-            timestamp=datetime.utcnow().isoformat() + "Z",
+            timestamp=_utc_now_iso(),
             event_type="RECOMMENDATION",
             payload={
                 "recommendation": recommendation,
@@ -105,7 +109,7 @@ class AuditLog:
         """Log an operator decision."""
         entry = TraceEntry(
             entry_id=self._generate_id(),
-            timestamp=datetime.utcnow().isoformat() + "Z",
+            timestamp=_utc_now_iso(),
             event_type="DECISION",
             payload={
                 "accepted": accepted,
@@ -128,7 +132,7 @@ class AuditLog:
         """Log an error event."""
         entry = TraceEntry(
             entry_id=self._generate_id(),
-            timestamp=datetime.utcnow().isoformat() + "Z",
+            timestamp=_utc_now_iso(),
             event_type="ERROR",
             payload={
                 "error_type": error_type,
@@ -150,7 +154,7 @@ class AuditLog:
             json.dump(
                 {
                     "log_version": "1.0",
-                    "generated_at": datetime.utcnow().isoformat() + "Z",
+                    "generated_at": _utc_now_iso(),
                     "n_entries": len(self.entries),
                     "entries": [asdict(e) for e in self.entries],
                 },

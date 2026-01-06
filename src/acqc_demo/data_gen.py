@@ -9,7 +9,7 @@ Generates synthetic time series simulating:
 
 import json
 from dataclasses import dataclass, asdict
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Iterator
 import hashlib
@@ -37,6 +37,16 @@ class QualitySample:
     source: str  # "LAB" or "SIMULATED"
 
 
+def _isoformat_z(ts: datetime) -> str:
+    if ts.tzinfo is None:
+        return ts.isoformat() + "Z"
+    return ts.astimezone(timezone.utc).isoformat().replace("+00:00", "Z")
+
+
+def _utc_now_iso() -> str:
+    return _isoformat_z(datetime.now(timezone.utc))
+
+
 def generate_tag_series(
     tag_id: str,
     base_value: float,
@@ -47,7 +57,7 @@ def generate_tag_series(
     start_time: datetime | None = None,
 ) -> Iterator[TagSample]:
     """Generate a synthetic time series for a process tag."""
-    start = start_time or datetime.utcnow()
+    start = start_time or datetime.now(timezone.utc)
     
     for i in range(n_samples):
         ts = start + timedelta(seconds=i * interval_seconds)
@@ -67,7 +77,7 @@ def generate_tag_series(
             value = float("nan")
         
         yield TagSample(
-            timestamp=ts.isoformat() + "Z",
+            timestamp=_isoformat_z(ts),
             tag_id=tag_id,
             value=round(value, 4),
             unit=unit,
@@ -121,7 +131,7 @@ def generate_demo_dataset(
     
     Returns dict with tags and quality data, optionally saves to files.
     """
-    start_time = datetime(2026, 1, 1, 8, 0, 0)
+    start_time = datetime(2026, 1, 1, 8, 0, 0, tzinfo=timezone.utc)
     
     # Define process tags (simulated)
     tag_configs = [
@@ -156,7 +166,7 @@ def generate_demo_dataset(
     
     dataset = {
         "metadata": {
-            "generated_at": datetime.utcnow().isoformat() + "Z",
+            "generated_at": _utc_now_iso(),
             "n_samples": n_samples,
             "tags": [t[0] for t in tag_configs],
             "quality_variable": "RON",

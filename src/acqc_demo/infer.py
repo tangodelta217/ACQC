@@ -8,9 +8,13 @@ This is a demonstration - not a production model.
 import json
 import hashlib
 from dataclasses import dataclass, asdict
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
+
+
+def _utc_now_iso() -> str:
+    return datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
 
 
 @dataclass
@@ -89,7 +93,7 @@ class SoftSensor:
         Returns:
             Prediction with estimate, uncertainty, and status
         """
-        ts = timestamp or (datetime.utcnow().isoformat() + "Z")
+        ts = timestamp or _utc_now_iso()
         
         # Check for missing or bad inputs
         missing = set(self.config.input_tags) - set(tag_values.keys())

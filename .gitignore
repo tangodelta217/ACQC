@@ -25,3 +25,6 @@ Thumbs.db
 # Build artifacts
 *.log
 site/
+
+# Demo output
+src/output/
