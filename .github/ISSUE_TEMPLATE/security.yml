@@ -1,0 +1,71 @@
+name: 🔒 Security Concern
+description: Reportar una preocupación de seguridad (enfoque defensivo)
+labels: ["security"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ⚠️ **Importante**: Este formulario es para preocupaciones de seguridad defensiva.
+        
+        Si detectas una vulnerabilidad activa que requiere atención urgente,
+        contacta directamente al equipo de Security según el procedimiento establecido.
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Categoría
+      options:
+        - Gap en controles existentes
+        - Nuevo vector de amenaza identificado
+        - Mejora de hardening
+        - Actualización de política/procedimiento
+        - Otro
+    validations:
+      required: true
+
+  - type: dropdown
+    id: zone
+    attributes:
+      label: Zona afectada
+      options:
+        - OT (Purdue L0-L3)
+        - DMZ / Edge
+        - IT / Analytics
+        - Cross-zone
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Descripción
+      placeholder: "Describe la preocupación de seguridad y el contexto"
+    validations:
+      required: true
+
+  - type: textarea
+    id: recommendation
+    attributes:
+      label: Recomendación defensiva
+      placeholder: "Qué control o mejora se propone"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Prioridad sugerida
+      options:
+        - Alta (riesgo significativo)
+        - Media (mejora recomendada)
+        - Baja (nice-to-have)
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: acknowledgment
+    attributes:
+      label: Confirmación
+      options:
+        - label: "Esta issue NO contiene información sensible ni detalles de explotación"
+          required: true

@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ACQC Laboratory Result",
+  "type": "object",
+  "required": [
+    "sample_id",
+    "ts_sampled",
+    "quality_variable",
+    "value",
+    "unit",
+    "method"
+  ],
+  "properties": {
+    "sample_id": {
+      "type": "string"
+    },
+    "batch_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "ts_sampled": {
+      "type": "string"
+    },
+    "ts_reported": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "quality_variable": {
+      "type": "string"
+    },
+    "value": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "unit": {
+      "type": "string"
+    },
+    "method": {
+      "type": "string",
+      "description": "Standard + internal procedure"
+    },
+    "lod": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "loq": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "uncertainty": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "analyst": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "meta": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false
+}

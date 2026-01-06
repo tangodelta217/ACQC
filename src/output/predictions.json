@@ -1,0 +1,208 @@
+{
+  "predictions": [
+    {
+      "timestamp": "2026-01-01T08:00:00Z",
+      "variable_id": "RON",
+      "y_hat": 89.887,
+      "uncertainty_lower": 89.387,
+      "uncertainty_upper": 90.387,
+      "model_id": "soft-sensor-ron-v1",
+      "model_hash": "e62cff7ec62c2f1e",
+      "status": "OK"
+    },
+    {
+      "timestamp": "2026-01-01T08:01:00Z",
+      "variable_id": "RON",
+      "y_hat": 89.874,
+      "uncertainty_lower": 89.374,
+      "uncertainty_upper": 90.374,
+      "model_id": "soft-sensor-ron-v1",
+      "model_hash": "e62cff7ec62c2f1e",
+      "status": "OK"
+    },
+    {
+      "timestamp": "2026-01-01T08:02:00Z",
+      "variable_id": "RON",
+      "y_hat": 90.035,
+      "uncertainty_lower": 89.535,
+      "uncertainty_upper": 90.535,
+      "model_id": "soft-sensor-ron-v1",
+      "model_hash": "e62cff7ec62c2f1e",
+      "status": "OK"
+    },
+    {
+      "timestamp": "2026-01-01T08:03:00Z",
+      "variable_id": "RON",
+      "y_hat": 90.008,
+      "uncertainty_lower": 89.508,
+      "uncertainty_upper": 90.508,
+      "model_id": "soft-sensor-ron-v1",
+      "model_hash": "e62cff7ec62c2f1e",
+      "status": "OK"
+    },
+    {
+      "timestamp": "2026-01-01T08:04:00Z",
+      "variable_id": "RON",
+      "y_hat": NaN,
+      "uncertainty_lower": NaN,
+      "uncertainty_upper": NaN,
+      "model_id": "soft-sensor-ron-v1",
+      "model_hash": "e62cff7ec62c2f1e",
+      "status": "DEGRADED"
+    },
+    {
+      "timestamp": "2026-01-01T08:05:00Z",
+      "variable_id": "RON",
+      "y_hat": 90.187,
+      "uncertainty_lower": 89.687,
+      "uncertainty_upper": 90.687,
+      "model_id": "soft-sensor-ron-v1",
+      "model_hash": "e62cff7ec62c2f1e",
+      "status": "OK"
+    },
+    {
+      "timestamp": "2026-01-01T08:06:00Z",
+      "variable_id": "RON",
+      "y_hat": 90.271,
+      "uncertainty_lower": 89.771,
+      "uncertainty_upper": 90.771,
+      "model_id": "soft-sensor-ron-v1",
+      "model_hash": "e62cff7ec62c2f1e",
+      "status": "OK"
+    },
+    {
+      "timestamp": "2026-01-01T08:07:00Z",
+      "variable_id": "RON",
+      "y_hat": 90.221,
+      "uncertainty_lower": 89.721,
+      "uncertainty_upper": 90.721,
+      "model_id": "soft-sensor-ron-v1",
+      "model_hash": "e62cff7ec62c2f1e",
+      "status": "OK"
+    },
+    {
+      "timestamp": "2026-01-01T08:08:00Z",
+      "variable_id": "RON",
+      "y_hat": 90.288,
+      "uncertainty_lower": 89.788,
+      "uncertainty_upper": 90.788,
+      "model_id": "soft-sensor-ron-v1",
+      "model_hash": "e62cff7ec62c2f1e",
+      "status": "OK"
+    },
+    {
+      "timestamp": "2026-01-01T08:09:00Z",
+      "variable_id": "RON",
+      "y_hat": 90.343,
+      "uncertainty_lower": 89.843,
+      "uncertainty_upper": 90.843,
+      "model_id": "soft-sensor-ron-v1",
+      "model_hash": "e62cff7ec62c2f1e",
+      "status": "OK"
+    },
+    {
+      "timestamp": "2026-01-01T08:10:00Z",
+      "variable_id": "RON",
+      "y_hat": 90.337,
+      "uncertainty_lower": 89.837,
+      "uncertainty_upper": 90.837,
+      "model_id": "soft-sensor-ron-v1",
+      "model_hash": "e62cff7ec62c2f1e",
+      "status": "OK"
+    },
+    {
+      "timestamp": "2026-01-01T08:11:00Z",
+      "variable_id": "RON",
+      "y_hat": 90.448,
+      "uncertainty_lower": 89.948,
+      "uncertainty_upper": 90.948,
+      "model_id": "soft-sensor-ron-v1",
+      "model_hash": "e62cff7ec62c2f1e",
+      "status": "OK"
+    },
+    {
+      "timestamp": "2026-01-01T08:12:00Z",
+      "variable_id": "RON",
+      "y_hat": 90.31,
+      "uncertainty_lower": 89.81,
+      "uncertainty_upper": 90.81,
+      "model_id": "soft-sensor-ron-v1",
+      "model_hash": "e62cff7ec62c2f1e",
+      "status": "OK"
+    },
+    {
+      "timestamp": "2026-01-01T08:13:00Z",
+      "variable_id": "RON",
+      "y_hat": 90.339,
+      "uncertainty_lower": 89.839,
+      "uncertainty_upper": 90.839,
+      "model_id": "soft-sensor-ron-v1",
+      "model_hash": "e62cff7ec62c2f1e",
+      "status": "OK"
+    },
+    {
+      "timestamp": "2026-01-01T08:14:00Z",
+      "variable_id": "RON",
+      "y_hat": 90.448,
+      "uncertainty_lower": 89.948,
+      "uncertainty_upper": 90.948,
+      "model_id": "soft-sensor-ron-v1",
+      "model_hash": "e62cff7ec62c2f1e",
+      "status": "OK"
+    },
+    {
+      "timestamp": "2026-01-01T08:15:00Z",
+      "variable_id": "RON",
+      "y_hat": 90.378,
+      "uncertainty_lower": 89.878,
+      "uncertainty_upper": 90.878,
+      "model_id": "soft-sensor-ron-v1",
+      "model_hash": "e62cff7ec62c2f1e",
+      "status": "OK"
+    },
+    {
+      "timestamp": "2026-01-01T08:16:00Z",
+      "variable_id": "RON",
+      "y_hat": 90.455,
+      "uncertainty_lower": 89.955,
+      "uncertainty_upper": 90.955,
+      "model_id": "soft-sensor-ron-v1",
+      "model_hash": "e62cff7ec62c2f1e",
+      "status": "OK"
+    },
+    {
+      "timestamp": "2026-01-01T08:17:00Z",
+      "variable_id": "RON",
+      "y_hat": 90.22,
+      "uncertainty_lower": 89.72,
+      "uncertainty_upper": 90.72,
+      "model_id": "soft-sensor-ron-v1",
+      "model_hash": "e62cff7ec62c2f1e",
+      "status": "OK"
+    },
+    {
+      "timestamp": "2026-01-01T08:18:00Z",
+      "variable_id": "RON",
+      "y_hat": 90.306,
+      "uncertainty_lower": 89.806,
+      "uncertainty_upper": 90.806,
+      "model_id": "soft-sensor-ron-v1",
+      "model_hash": "e62cff7ec62c2f1e",
+      "status": "OK"
+    },
+    {
+      "timestamp": "2026-01-01T08:19:00Z",
+      "variable_id": "RON",
+      "y_hat": 90.27,
+      "uncertainty_lower": 89.77,
+      "uncertainty_upper": 90.77,
+      "model_id": "soft-sensor-ron-v1",
+      "model_hash": "e62cff7ec62c2f1e",
+      "status": "OK"
+    }
+  ],
+  "n_total": 20,
+  "n_ok": 19,
+  "n_degraded": 1,
+  "n_ood": 0
+}

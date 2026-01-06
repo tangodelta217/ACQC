@@ -1,0 +1,69 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  # ============================================
+  # Job 1: Check markdown links
+  # ============================================
+  markdown-links:
+    name: Check Markdown Links
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Check markdown links
+        uses: gaurav-nelson/github-action-markdown-link-check@v1
+        with:
+          use-quiet-mode: 'yes'
+          config-file: '.github/markdown-link-check.json'
+          folder-path: 'docs/, ./'
+          file-extension: '.md'
+
+  # ============================================
+  # Job 2: Build MkDocs (docs gate)
+  # ============================================
+  mkdocs-build:
+    name: Build MkDocs
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+      
+      - name: Install dependencies
+        run: pip install mkdocs-material pymdown-extensions
+      
+      - name: Build MkDocs (strict mode)
+        run: mkdocs build --strict
+
+  # ============================================
+  # Job 3: Python demo tests (optional)
+  # ============================================
+  python-tests:
+    name: Python Demo Tests
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: src
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+      
+      - name: Install test dependencies
+        run: pip install pytest pytest-cov
+      
+      - name: Run tests
+        run: pytest tests/ -v --tb=short

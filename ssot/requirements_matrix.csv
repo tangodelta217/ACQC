@@ -1,0 +1,13 @@
+RQ_ID,Type,Statement,Verification_Method,Owner
+RF-01,Functional,Ingestión de datos de proceso (tags) en modo solo lectura desde PLC/DCS/historian.,Prueba de conectividad + logs de adquisición,OT/IT
+RF-02,Functional,"Ingestión de datos PAT (p.ej., NIR/Raman) y sincronización temporal con tags de proceso.",Comparación de timestamps + coherencia espectral,QA/OT
+RF-03,Functional,Ejecución de inferencia de soft sensors en edge con trazabilidad por ventana/lote.,Logs de inferencia + hash de modelo + auditoría,Data/OT
+RF-04,Functional,"Detección de fallos de sensor, drift y condiciones fuera de dominio (OOD) con alarmas.",Métricas de drift + casos de prueba retrospectivos,Data/QA
+RF-05,Functional,Modo fallback definido (degradado/suspendido) con bloqueo de recomendación cuando aplique.,Pruebas de máquina de estados + runbook,OT/QA
+RF-06,Functional,Recomendador robusto en modo advisory: genera setpoints/recetas sugeridas + justificación.,Simulación/históricos + revisión SME,Process/OT
+RF-07,Functional,"Dashboard/HMI con calidad estimada, alarmas y trazabilidad (quién/qué/cuándo).",Revisión UI + prueba de auditoría,Operations
+RNF-01,Non-functional,Latencia end-to-end (p95) dentro de umbral definido para operación en planta.,Medición en edge (p95) con carga nominal,OT/IT
+RNF-02,Non-functional,Disponibilidad del servicio de inferencia (uptime) dentro de objetivo anual.,Monitorización + reporte mensual,OT/IT
+RNF-03,Non-functional,Trazabilidad completa: datos→features→modelo→predicción→recomendación→decisión operador.,Auditoría reproducible (replay),QA/Data
+RNF-04,Non-functional,"Seguridad defensiva OT: hardening, segmentación OT/DMZ/IT, autenticación y cifrado.",Checklist IEC 62443 / NIST + pruebas internas,OT-Sec
+RNF-05,Non-functional,"Mantenibilidad: despliegue reproducible, rollback y gestión de versiones de artefactos.",CI/CD + despliegue canary + rollback,Data/IT

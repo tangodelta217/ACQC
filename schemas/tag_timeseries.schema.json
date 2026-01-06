@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ACQC Tag Timeseries Record",
+  "type": "object",
+  "required": [
+    "ts",
+    "tag_id",
+    "value",
+    "unit",
+    "quality"
+  ],
+  "properties": {
+    "ts": {
+      "type": "string",
+      "description": "ISO-8601 timestamp (UTC preferred)."
+    },
+    "tag_id": {
+      "type": "string"
+    },
+    "value": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "unit": {
+      "type": "string"
+    },
+    "quality": {
+      "type": "string",
+      "enum": [
+        "GOOD",
+        "BAD",
+        "UNCERTAIN",
+        "MISSING"
+      ]
+    },
+    "source": {
+      "type": "string",
+      "description": "PLC/DCS/Historian/PAT/LIMS"
+    },
+    "batch_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "line_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "meta": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false
+}

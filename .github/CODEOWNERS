@@ -1,0 +1,25 @@
+# CODEOWNERS for ACQC Repository
+# https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Default: maintainer reviews all changes
+* @tangodelta217
+
+# Documentation
+/docs/ @tangodelta217
+/README.md @tangodelta217
+
+# SSOT changes require careful review
+/ssot/ @tangodelta217
+
+# Security-related changes
+/docs/04_Security/ @tangodelta217
+/.github/ISSUE_TEMPLATE/security.yml @tangodelta217
+
+# CI/CD
+/.github/workflows/ @tangodelta217
+
+# Demo code
+/src/ @tangodelta217
+
+# Schemas (data contracts)
+/schemas/ @tangodelta217

@@ -1,0 +1,78 @@
+name: ✅ Request - Evidencia de Validación QA
+description: Documentar nueva evidencia de validación contra laboratorio
+labels: ["validation", "qa"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Registro de evidencia de validación para el sistema ACQC.
+        Esta información alimenta el proceso de gates (G1-G4).
+
+  - type: dropdown
+    id: gate
+    attributes:
+      label: Gate relacionado
+      options:
+        - G1 - Model Performance (offline)
+        - G4 - Shadow Validation
+        - Otro
+    validations:
+      required: true
+
+  - type: input
+    id: variable
+    attributes:
+      label: Variable de calidad validada
+      placeholder: "RON, MON, Densidad"
+    validations:
+      required: true
+
+  - type: input
+    id: period
+    attributes:
+      label: Período de validación
+      placeholder: "2026-01-01 a 2026-01-15"
+    validations:
+      required: true
+
+  - type: input
+    id: n_samples
+    attributes:
+      label: Número de muestras
+      placeholder: "50"
+    validations:
+      required: true
+
+  - type: textarea
+    id: results
+    attributes:
+      label: Resultados (métricas)
+      placeholder: |
+        - MAE: X.XX
+        - RMSE: X.XX
+        - Cobertura intervalo: XX%
+    validations:
+      required: true
+
+  - type: dropdown
+    id: status
+    attributes:
+      label: Resultado de validación
+      options:
+        - PASS (cumple KPIs)
+        - FAIL (no cumple)
+        - CONDITIONAL (requiere revisión)
+    validations:
+      required: true
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notas adicionales
+      placeholder: "Condiciones especiales, limitaciones, próximos pasos"
+
+  - type: input
+    id: evidencia_path
+    attributes:
+      label: Ruta de evidencia (si aplica)
+      placeholder: "Link a reporte, Excel, o ubicación de archivos"

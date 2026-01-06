@@ -1,0 +1,61 @@
+name: 🐛 Bug Report (Docs/Portal)
+description: Reportar un error en la documentación o portal
+labels: ["bug", "documentation"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Gracias por reportar un problema. Por favor completa la información siguiente.
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Área afectada
+      options:
+        - Portal MkDocs
+        - README principal
+        - Arquitectura
+        - Governance/MLOps
+        - Security
+        - Business Case
+        - Demo (src/)
+        - Otro
+    validations:
+      required: true
+
+  - type: input
+    id: page
+    attributes:
+      label: Página o archivo afectado
+      placeholder: "docs/01_Architecture/ARCHITECTURE_PORTAL.md"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Descripción del problema
+      placeholder: "Describe qué está mal y qué esperabas ver"
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Pasos para reproducir
+      placeholder: |
+        1. Ir a...
+        2. Click en...
+        3. Ver error...
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severidad
+      options:
+        - Crítico (bloquea uso)
+        - Alto (funcionalidad afectada)
+        - Medio (confuso pero usable)
+        - Bajo (cosmético)
+    validations:
+      required: true

@@ -1,0 +1,13 @@
+{
+  "ignorePatterns": [
+    { "pattern": "^http://localhost" },
+    { "pattern": "^https://github.com/<usuario>" }
+  ],
+  "replacementPatterns": [
+    { "pattern": "^/", "replacement": "" }
+  ],
+  "aliveStatusCodes": [200, 206, 301, 302, 403],
+  "retryOn429": true,
+  "retryCount": 3,
+  "fallbackRetryDelay": "5s"
+}

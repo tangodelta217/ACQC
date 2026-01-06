@@ -1,0 +1,68 @@
+name: 📊 Request - Nuevo Tag o Variable de Calidad (SSOT)
+description: Solicitar añadir un nuevo tag de proceso o variable de calidad al SSOT
+labels: ["ssot", "enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Solicitud para añadir elementos al Single Source of Truth (SSOT).
+        Estos cambios requieren aprobación de OT y/o QA.
+
+  - type: dropdown
+    id: type
+    attributes:
+      label: Tipo de elemento
+      options:
+        - Tag de proceso (OT)
+        - Variable de calidad (QA)
+        - KPI de aceptación
+        - Requisito nuevo
+    validations:
+      required: true
+
+  - type: input
+    id: identifier
+    attributes:
+      label: Identificador propuesto
+      placeholder: "TI-501 / RON_BLEND / KPI-LATENCY-P99"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Descripción y justificación
+      placeholder: "Qué mide, por qué es necesario, fuente de datos"
+    validations:
+      required: true
+
+  - type: input
+    id: unit
+    attributes:
+      label: Unidad de medida
+      placeholder: "°C, bar, octane, ms"
+    validations:
+      required: true
+
+  - type: input
+    id: range
+    attributes:
+      label: Rango esperado
+      placeholder: "300-400, 0-100, <50"
+
+  - type: textarea
+    id: source
+    attributes:
+      label: Fuente de datos
+      placeholder: "PLC/DCS tag, Historian, LIMS, calculado"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: approvals
+    attributes:
+      label: Aprobaciones requeridas
+      options:
+        - label: OT (si es tag de proceso)
+        - label: QA (si es variable de calidad)
+        - label: Security (si implica nueva conexión)

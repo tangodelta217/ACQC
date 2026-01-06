@@ -1,0 +1,6 @@
+QV_ID,Quality_Variable,Operational_Definition,Unit,Spec_Low,Spec_High,Ground_Truth_Method,Standard,Criticality,Status,Notes
+QV-01,Density@15°C,"Densidad del producto/mezcla a 15°C, usada para validar consistencia y mezclado.",kg/m3,930,970,ASTM D4052 (densidad por tubo oscilante),ASTM D4052,High,In-scope,Método y rangos en documento de validación QA
+QV-02,Kinematic viscosity@40°C,"Viscosidad cinemática a 40°C, relacionada con composición y degradación.",mm2/s,2.0,20.0,ASTM D445 (viscosidad cinemática),ASTM D445,High,In-scope,Se recomienda control de temperatura y limpieza de línea
+QV-03,Total Acid Number (TAN),Número de acidez total; indicador de oxidación/contaminación ácida.,mg KOH/g,0.0,1.0,ASTM D664 (potenciométrico),ASTM D664,High,In-scope,Umbral preliminar; ajustar a especificación interna
+QV-04,Total Chlorine,Cloro total u orgánico según matriz; indicador de contaminantes corrosivos/catalyst poison.,mg/kg,0.0,10.0,ASTM D5808 (microcoulometría),ASTM D5808,High,In-scope,Método depende de matriz; registrar limitaciones y LOD/LOQ
+QV-05,MFI (Melt Flow Index),Índice de fluidez para polímeros (si aplica al producto final).,g/10min,,,ISO 1133 / ASTM D1238,ISO 1133 / ASTM D1238,Medium,Optional,Incluir solo si la línea procesa polímeros y existe método lab rutinario

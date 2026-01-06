@@ -1,0 +1,9 @@
+KPI_ID,KPI,Metric,Threshold_Min,Measurement_Method,Owner,Notes
+KPI-01,Error vs laboratorio (densidad),MAE / RMSE,MAE <= 5.0 kg/m3,Comparación vs LIMS; split temporal por lotes,QA/Data,Umbral orientativo; ajustar según variabilidad
+KPI-02,Error vs laboratorio (viscosidad),MAPE / RMSE,MAPE <= 10%,Comparación vs LIMS; ventanas alineadas,QA/Data,
+KPI-03,Detección de drift/OOD,F1-score,F1 >= 0.80,Casos etiquetados + retrospectivo,Data/QA,
+KPI-04,Latencia end-to-end,p95 (s),p95 <= 5 s,Logs de edge (timestamps),OT/IT,Incluye adquisición+features+inferencia+UI
+KPI-05,Disponibilidad del servicio,% uptime,>= 99%,Heartbeat + monitorización,OT/IT,
+KPI-06,Cobertura de incertidumbre,PI 95% coverage,>= 90%,Backtesting con intervalos,Data,Si se usa calibración de incertidumbre
+KPI-07,Recomendaciones seguras,# violaciones,0,Reproducción sobre históricos/simulación,Process/OT,Incluye hard constraints
+KPI-08,Trazabilidad y auditoría,% eventos auditables,100%,Revisión de logs + hashes + firma,QA/OT-Sec,

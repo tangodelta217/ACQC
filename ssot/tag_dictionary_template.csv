@@ -1,0 +1,6 @@
+Tag_ID,Signal_Name,Description,Unit,Expected_Min,Expected_Max,Sampling_Frequency_Hz,Source_System,Interface,Data_Quality_Flag,Criticality,Owner,Notes
+TIC-201.PV,Reactor_Temperature,Reactor jacket/bed temperature (process variable),°C,0,500,1.0,DCS,OPC-UA,GOOD,High,OT/Process,Ejemplo de tag; reemplazar por tag real de planta
+PIC-305.PV,Column_Pressure,Column pressure (process variable),bar,0,50,1.0,DCS,OPC-UA,GOOD,High,OT/Process,
+FIC-101.PV,Feed_Flow,Feed flow rate,t/h,0,200,1.0,DCS,OPC-UA,GOOD,High,OT/Process,
+AI-901.PV,NIR_Spectrum,NIR spectrum (vector),a.u.,,,0.2,PAT,Vendor API,GOOD,High,QA/Instrumentation,Registro por ventana; almacenamiento fuera del historian si es necesario
+LAB.DENSITY_15C,Lab_Density_15C,Laboratory density at 15°C (ground truth),kg/m3,800,1100,0.0,LIMS,CSV export,VERIFIED,High,QA/Lab,Muestra asociada a lote/ventana; cadena de custodia requerida
