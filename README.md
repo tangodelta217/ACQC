@@ -9,7 +9,7 @@ Arquitectura **operable** en entorno industrial: *soft sensors* + validación + 
 
 ---
 
-## Navegación rápida (para “wow” en 60 segundos)
+## Navegación rápida 
 
 - **Arquitectura end-to-end (diagrama + vistas)** → [`docs/01_Architecture/ARCHITECTURE_PORTAL.md`](docs/01_Architecture/ARCHITECTURE_PORTAL.md)
 - **Entregables PDF + Business Case ROI** → [`docs/00_Deliverables/`](docs/00_Deliverables/)
@@ -67,7 +67,7 @@ flowchart LR
 
 ---
 
-## Business Case (snapshot visual)
+## Business Case 
 
 > Los gráficos siguientes se generan a partir de los supuestos del Excel (no son mediciones).  
 > Detalle y trazabilidad: `docs/00_Deliverables/09_BusinessCase_ROI_mejorado.xlsx`.
@@ -86,7 +86,7 @@ flowchart LR
 
 ---
 
-## Demo local (opcional)
+## Demo local 
 
 Esqueleto ejecutable mínimo con datos sintéticos para demostración técnica.
 
@@ -122,7 +122,7 @@ Ver [`src/README.md`](src/README.md) para documentación completa.
 
 ---
 
-## Estructura del repositorio (mapa)
+## Estructura del repositorio 
 
 - `docs/` → portal de lectura (arquitectura, operación, gobernanza, seguridad, entregables).
 - `src/` → código de referencia (demo ejecutable con datos sintéticos).
@@ -133,8 +133,4 @@ Ver [`src/README.md`](src/README.md) para documentación completa.
 
 ---
 
-## Nota de confidencialidad
-
-Este repositorio evita incluir datos reales de proceso o identificadores sensibles.  
-Los nombres de tags, valores numéricos y endpoints son **plantillas** y deben adaptarse a la realidad de planta con aprobación OT/IT.
 
